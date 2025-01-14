@@ -31,6 +31,7 @@ const version = 2 + 1
   background-color: #2c3e50;
   color: white;
   padding: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .sidebar ul {
