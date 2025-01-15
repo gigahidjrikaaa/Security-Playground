@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import DropdownButton from '~/components/DropdownButton.vue'
 
 const version = '1.0.0'
 const isSidebarOpen = ref(true)
@@ -22,7 +23,10 @@ const toggleSidebar = () => {
       <hr class="my-4 border-gray-700" />
       <ul v-if="isSidebarOpen" class="mt-4">
         <li class="mb-0 bg-gray-700 rounded"><NuxtLink to="/" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Home</NuxtLink></li>
-        <li class="mb-0 bg-gray-700 rounded"><NuxtLink to="/profile" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Profile</NuxtLink></li>
+        <li class="mb-0 bg-gray-700 rounded"><DropdownButton title="Encryption">
+          <NuxtLink to="/encryption/passwordChecker" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Password Checker</NuxtLink>
+          <NuxtLink to="/encryption/cipher" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Cipher</NuxtLink>
+        </DropdownButton></li>
         <li class="mb-0 bg-gray-700 rounded"><NuxtLink to="/settings" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Settings</NuxtLink></li>
         <li class="mb-0 bg-gray-700 rounded"><NuxtLink to="/signin" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Sign In</NuxtLink></li>
       </ul>
