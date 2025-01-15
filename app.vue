@@ -27,6 +27,10 @@ const toggleSidebar = () => {
           <NuxtLink to="/encryption/passwordChecker" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Password Checker</NuxtLink>
           <NuxtLink to="/encryption/cipher" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Cipher</NuxtLink>
         </DropdownButton></li>
+        <li class="mb-0 bg-gray-700 rounded"><DropdownButton title="Offensive Hacking">
+          <NuxtLink to="/offensive/sql-injection" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">SQL Injection</NuxtLink>
+          <NuxtLink to="/offensive/xss" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">XSS</NuxtLink>
+        </DropdownButton></li>
         <li class="mb-0 bg-gray-700 rounded"><DropdownButton title="Certifications">
           <NuxtLink to="/certifications/overview" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Overview</NuxtLink>
           <NuxtLink to="/certifications/ceh" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">CEH</NuxtLink>
