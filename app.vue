@@ -27,8 +27,17 @@ const toggleSidebar = () => {
           <NuxtLink to="/encryption/passwordChecker" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Password Checker</NuxtLink>
           <NuxtLink to="/encryption/cipher" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Cipher</NuxtLink>
         </DropdownButton></li>
-        <li class="mb-0 bg-gray-700 rounded"><NuxtLink to="/settings" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Settings</NuxtLink></li>
-        <li class="mb-0 bg-gray-700 rounded"><NuxtLink to="/signin" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Sign In</NuxtLink></li>
+        <li class="mb-0 bg-gray-700 rounded"><DropdownButton title="Certifications">
+          <NuxtLink to="/certifications/overview" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Overview</NuxtLink>
+          <NuxtLink to="/certifications/ceh" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">CEH</NuxtLink>
+          <NuxtLink to="/certifications/oscp" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">OSCP</NuxtLink>
+          <NuxtLink to="/certifications/cisco" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Cisco</NuxtLink>
+        </DropdownButton></li>
+        <li class="mb-0 bg-gray-700 rounded"><DropdownButton title="Profile">
+          <NuxtLink to="/profile/signin" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Sign In</NuxtLink>
+          <NuxtLink to="/profile/profile" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Profile</NuxtLink>
+          <NuxtLink to="/profile/settings" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Settings</NuxtLink>
+        </DropdownButton></li>
       </ul>
       <hr class="my-4 border-gray-700" />
       <p class="absolute bottom-4 text-center w-full text-gray-400">Vite + Vue 3 + Tailwind CSS</p>

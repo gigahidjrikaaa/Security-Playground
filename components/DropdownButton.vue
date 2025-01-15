@@ -1,6 +1,6 @@
 <template>
     <div>
-      <button @click="toggleDropdown" class="block w-full text-left p-4 hover:bg-gray-600">
+      <button @click="toggleDropdown" class="block w-full text-left p-4 hover:bg-gray-600" :class="{'bg-gray-900': isDropdownOpen}">
         {{ title }}
       </button>
       <ul v-if="isDropdownOpen" class="pl-4">
