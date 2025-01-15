@@ -22,21 +22,26 @@ const toggleSidebar = () => {
       <p class="text-center italic text-sm text-gray-400">developed by <a href="https://www.linkedin.com/in/gigahidjrikaaa" target="_blank" class="underline">gigahidjrikaaa</a></p>
       <hr class="my-4 border-gray-700" />
       <ul v-if="isSidebarOpen" class="mt-4">
+        <!-- Home Nav -->
         <li class="mb-0 bg-gray-700 rounded"><NuxtLink to="/" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Home</NuxtLink></li>
+        <!-- Encryiption Nav -->
         <li class="mb-0 bg-gray-700 rounded"><DropdownButton title="Encryption">
           <NuxtLink to="/encryption/passwordChecker" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Password Checker</NuxtLink>
           <NuxtLink to="/encryption/cipher" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Cipher</NuxtLink>
         </DropdownButton></li>
+        <!-- Offensive Nav -->
         <li class="mb-0 bg-gray-700 rounded"><DropdownButton title="Offensive Hacking">
           <NuxtLink to="/offensive/sql-injection" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">SQL Injection</NuxtLink>
           <NuxtLink to="/offensive/xss" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">XSS</NuxtLink>
         </DropdownButton></li>
+        <!-- Certifications Nav -->
         <li class="mb-0 bg-gray-700 rounded"><DropdownButton title="Certifications">
           <NuxtLink to="/certifications/overview" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Overview</NuxtLink>
           <NuxtLink to="/certifications/ceh" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">CEH</NuxtLink>
           <NuxtLink to="/certifications/oscp" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">OSCP</NuxtLink>
           <NuxtLink to="/certifications/cisco" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Cisco</NuxtLink>
         </DropdownButton></li>
+        <!-- Profile Nav -->
         <li class="mb-0 bg-gray-700 rounded"><DropdownButton title="Profile">
           <NuxtLink to="/profile/signin" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Sign In</NuxtLink>
           <NuxtLink to="/profile/profile" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Profile</NuxtLink>
