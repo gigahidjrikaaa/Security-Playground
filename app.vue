@@ -3,22 +3,17 @@ const version = 2 + 1
 </script>
 
 <template>
-  <div class="flex h-screen w-screen">
-    <aside class="w-64 bg-gray-800 text-white">
+  <div class="flex h-screen">
+    <aside class="w-64 bg-gray-800 text-white p-4">
       <ul>
-        <li class="mb-4"><a href="#" class="hover:text-gray-400">Home</a></li>
-        <li class="mb-4"><a href="#" class="hover:text-gray-400">Profile</a></li>
-        <li class="mb-4"><a href="#" class="hover:text-gray-400">Settings</a></li>
-        <li class="mb-4"><a href="#" class="hover:text-gray-400">Logout</a></li>
+        <li class="mb-4"><NuxtLink to="/" class="hover:text-gray-400">Home</NuxtLink></li>
+        <li class="mb-4"><NuxtLink to="/profile" class="hover:text-gray-400">Profile</NuxtLink></li>
+        <li class="mb-4"><NuxtLink to="/settings" class="hover:text-gray-400">Settings</NuxtLink></li>
+        <li class="mb-4"><NuxtLink to="/signin" class="hover:text-gray-400">Sign In</NuxtLink></li>
       </ul>
     </aside>
     <main class="flex-1 p-8">
-      <div class="text-3xl font-bold">
-        Hello Nuxt {{ version }}!
-      </div>
+      <NuxtPage />
     </main>
   </div>
 </template>
-
-<style scoped>
-</style>
