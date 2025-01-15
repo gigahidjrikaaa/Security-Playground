@@ -7,14 +7,19 @@
         <p class="mb-4">
             Enter a message below and click "Submit" to see how the message is displayed.
         </p>
-        <p class="mb-4 italic">
-            Hint: Try entering <code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code> as the message.
+        <p class="mb-4">
+            Note that NuxtJS automatically escapes data by default, so you may need to disable this feature to see the effects of XSS. Although this playground does not disable escaping, you can still experiment with different payloads.
         </p>
+        <div class="mb-4 bg-yellow-200 p-2">
+            <p>
+                Hint: Try entering <code class="p-1 bg-gray-200">&lt;script&gt;alert('XSS')&lt;/script&gt;</code> as the message.
+            </p>
+        </div>
         <hr class="my-4">
         <form @submit.prevent="handleSubmit">
             <div class="mb-4">
-            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-            <input v-model="message" type="text" id="message" class="mt-1 block w-full border p-2" placeholder="Enter your message" />
+                <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                <input v-model="message" type="text" id="message" class="mt-1 block w-full border p-2" placeholder="Enter your message" />
             </div>
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
         </form>
@@ -40,6 +45,11 @@
       handleSubmit() {
         // Simulate storing and displaying the message, potentially allowing XSS
         this.submittedMessage = this.message;
+        
+        // Display an alert if the message contains a script tag
+        if (this.message.toLowerCase().includes('<script>')) {
+          alert('XSS detected! The message contains a script tag.');
+        }
       }
     }
   };
