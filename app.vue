@@ -12,8 +12,8 @@ const toggleSidebar = () => {
 
 <template>
   <div class="flex h-screen">
-    <aside :class="{'-translate-x-full': !isSidebarOpen, 'translate-x-0': isSidebarOpen}" class="relative w-64 bg-gray-800 text-white py-4 transform transition-transform duration-300 ease-in-out">
-      <button @click="toggleSidebar" class="absolute top-4 right-[-1.5rem] z-10 bg-gray-800 text-white p-2 rounded-lg">
+    <aside :class="{'-translate-x-full': !isSidebarOpen, 'translate-x-0': isSidebarOpen}" class="fixed top-0 left-0 h-full w-64 bg-gray-800 text-white py-4 transform transition-transform duration-300 ease-in-out z-20">
+      <button @click="toggleSidebar" class="absolute top-4 right-[-1.5rem] z-30 bg-gray-800 text-white p-2 rounded-lg">
         <span v-if="isSidebarOpen">←</span>
         <span v-else>→</span>
       </button>
@@ -24,7 +24,7 @@ const toggleSidebar = () => {
       <ul v-if="isSidebarOpen" class="mt-4">
         <!-- Home Nav -->
         <li class="mb-0 bg-gray-700 rounded"><NuxtLink to="/" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Home</NuxtLink></li>
-        <!-- Encryiption Nav -->
+        <!-- Encryption Nav -->
         <li class="mb-0 bg-gray-700 rounded"><DropdownButton title="Encryption">
           <NuxtLink to="/encryption/passwordChecker" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Password Checker</NuxtLink>
           <NuxtLink to="/encryption/cipher" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Cipher</NuxtLink>
@@ -51,7 +51,7 @@ const toggleSidebar = () => {
       <hr class="my-4 border-gray-700" />
       <p class="absolute bottom-4 text-center w-full text-gray-400">Vite + Vue 3 + Tailwind CSS</p>
     </aside>
-    <main :class="{'ml-4': isSidebarOpen, '-ml-60': !isSidebarOpen}" class="flex-1 p-8 transition-all duration-300 ease-in-out">
+    <main :class="{'ml-64': isSidebarOpen, 'ml-0': !isSidebarOpen}" class="flex-1 p-8 transition-all duration-300 ease-in-out overflow-y-auto">
       <NuxtPage />
     </main>
   </div>
