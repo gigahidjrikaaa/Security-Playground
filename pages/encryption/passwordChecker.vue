@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="p-8">
       <h1 class="text-3xl font-bold mb-4">Password Checker</h1>
       <input v-model="password" type="password" class="border p-2 w-full mb-2" placeholder="Enter your password" />
       <p class="mt-2">Password strength: <span :class="strengthClass">{{ passwordStrength }}</span></p>
@@ -10,6 +10,22 @@
         <li :class="{'text-green-500': hasNumber, 'text-red-500': !hasNumber}">At least one number</li>
         <li :class="{'text-green-500': hasSpecialChar, 'text-red-500': !hasSpecialChar}">At least one special character</li>
       </ul>
+  
+      <h1 class="text-2xl font-bold mt-4">Brute Force Simulation</h1>
+      <p class="mb-4">This simulation demonstrates how long it would take to crack a password using a brute force attack.</p>
+      <p class="mb-4">Enter the password length and click "Simulate" to see the time required to crack the password.</p>
+      <div class="mb-4">
+        <label for="length" class="block text-sm font-medium text-gray-700">Password Length</label>
+        <input v-model.number="length" type="number" id="length" class="mt-1 block w-full border p-2" placeholder="Enter password length" />
+      </div>
+      <button @click="simulateBruteForce" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Simulate</button>
+      <div v-if="isSimulating" class="mt-4">
+        <p>Simulating brute force attack...</p>
+        <div class="w-full bg-gray-200 rounded-full h-4">
+          <div :style="{ width: progress + '%' }" class="bg-blue-500 h-4 rounded-full transition-all duration-1000"></div>
+        </div>
+      </div>
+      <p v-if="bruteForceTime" class="mt-4">Estimated time to crack the password: {{ bruteForceTime }}</p>
     </div>
   </template>
   
@@ -17,7 +33,11 @@
   export default {
     data() {
       return {
-        password: ''
+        password: '',
+        length: 8,
+        bruteForceTime: null,
+        isSimulating: false,
+        progress: 0
       };
     },
     computed: {
@@ -63,6 +83,35 @@
           default:
             return '';
         }
+      }
+    },
+    methods: {
+      simulateBruteForce() {
+        this.isSimulating = true;
+        this.progress = 0;
+        this.bruteForceTime = null;
+  
+        const charsetSize = 94; // Assuming all printable ASCII characters
+        const combinations = Math.pow(charsetSize, this.length);
+        const attemptsPerSecond = 1000000000; // 1 billion attempts per second
+        const seconds = combinations / attemptsPerSecond;
+  
+        const years = Math.floor(seconds / (365 * 24 * 60 * 60));
+        const days = Math.floor((seconds % (365 * 24 * 60 * 60)) / (24 * 60 * 60));
+        const hours = Math.floor((seconds % (24 * 60 * 60)) / (60 * 60));
+        const minutes = Math.floor((seconds % (60 * 60)) / 60);
+        const secs = Math.floor(seconds % 60);
+  
+        this.bruteForceTime = `${years} years, ${days} days, ${hours} hours, ${minutes} minutes, ${secs} seconds`;
+  
+        const interval = setInterval(() => {
+          if (this.progress < 100) {
+            this.progress += 10;
+          } else {
+            clearInterval(interval);
+            this.isSimulating = false;
+          }
+        }, 1000);
       }
     }
   };
