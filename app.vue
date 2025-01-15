@@ -3,17 +3,17 @@ const version = 2 + 1
 </script>
 
 <template>
-  <div class="dashboard">
-    <aside class="sidebar">
+  <div class="flex h-screen w-screen">
+    <aside class="w-64 bg-gray-800 text-white">
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Logout</a></li>
+        <li class="mb-4"><a href="#" class="hover:text-gray-400">Home</a></li>
+        <li class="mb-4"><a href="#" class="hover:text-gray-400">Profile</a></li>
+        <li class="mb-4"><a href="#" class="hover:text-gray-400">Settings</a></li>
+        <li class="mb-4"><a href="#" class="hover:text-gray-400">Logout</a></li>
       </ul>
     </aside>
-    <main class="content">
-      <div class="hello">
+    <main class="flex-1 p-8">
+      <div class="text-3xl font-bold">
         Hello Nuxt {{ version }}!
       </div>
     </main>
@@ -21,40 +21,4 @@ const version = 2 + 1
 </template>
 
 <style scoped>
-.dashboard {
-  display: flex;
-  height: 100vh;
-}
-
-.sidebar {
-  width: 250px;
-  background-color: #2c3e50;
-  color: white;
-  padding: 1rem;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar ul li {
-  margin: 1rem 0;
-}
-
-.sidebar ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-.content {
-  flex: 1;
-  padding: 2rem;
-}
-
-.hello {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 3rem;
-}
 </style>
