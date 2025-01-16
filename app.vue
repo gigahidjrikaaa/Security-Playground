@@ -52,11 +52,18 @@ const toggleSidebar = () => {
       <p class="absolute bottom-4 text-center w-full text-gray-400">Vite + Vue 3 + Tailwind CSS</p>
     </aside>
     <main :class="{'ml-64': isSidebarOpen, 'ml-0': !isSidebarOpen}" class="flex-1 p-8 transition-all duration-300 ease-in-out overflow-y-auto">
-      <NuxtPage />
+      <Transition name="fade" mode="out-in">
+        <NuxtPage />
+      </Transition>
     </main>
   </div>
 </template>
 
 <style scoped>
-/* No additional styles needed as Tailwind CSS is being used */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
 </style>
