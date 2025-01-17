@@ -33,6 +33,8 @@ const toggleSidebar = () => {
         <li class="mb-0 bg-gray-700 rounded"><DropdownButton title="Offensive Hacking">
           <NuxtLink to="/offensive/sql-injection" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">SQL Injection</NuxtLink>
           <NuxtLink to="/offensive/xss" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">XSS</NuxtLink>
+          <NuxtLink to="/offensive/networkScanning" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Network Scanning</NuxtLink>
+          <NuxtLink to="/offensive/phising" class="block p-4 hover:bg-gray-600" active-class="bg-green-500 hover:bg-green-400">Phishing</NuxtLink>
         </DropdownButton></li>
         <!-- Certifications Nav -->
         <li class="mb-0 bg-gray-700 rounded"><DropdownButton title="Certifications">
