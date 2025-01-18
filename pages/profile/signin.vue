@@ -53,7 +53,7 @@ export default {
         localStorage.setItem('isAuthenticated', 'true');
         alert('Sign in successful!');
         // Redirect to the settings page
-        this.$router.push('/settings');
+        this.$router.push('/profile/settings');
       } else {
         this.errorMessage = 'Invalid username or password';
       }
