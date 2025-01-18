@@ -15,15 +15,17 @@
         </div>
         <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">Sign In</button>
         <p class="mt-4 text-center">Don't have an account?
-          <button @click="showModal" class="text-blue-500">Sign up</button>
+          <button type="button" @click="showModal" class="text-blue-500">Sign up</button>
         </p>
-        <modal v-if="isModalVisible" @close="isModalVisible = false">
-          <h3 slot="header">Account Creation</h3>
-          <p slot="body">Contact administrator for account creation</p>
-          <button slot="footer" @click="isModalVisible = false">Close</button>
-        </modal>
       </form>
       <p v-if="errorMessage" class="mt-4 text-red-500 text-center">{{ errorMessage }}</p>
+    </div>
+    <div v-if="isModalVisible" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+      <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
+        <h3 class="text-xl font-bold mb-4">Notice</h3>
+        <p>Contact administrator for account creation</p>
+        <button @click="isModalVisible = false" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Close</button>
+      </div>
     </div>
   </div>
 </template>
@@ -36,7 +38,8 @@ export default {
     return {
       username: '',
       password: '',
-      errorMessage: ''
+      errorMessage: '',
+      isModalVisible: false
     };
   },
   methods: {
