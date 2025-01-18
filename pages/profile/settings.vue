@@ -22,12 +22,12 @@
   
   export default {
     setup() {
-      const isAuthenticated = ref(false) // Mock authentication state
+      const isAuthenticated = ref(false)
       const router = useRouter()
   
       onMounted(() => {
-        // Check authentication state (mock)
-        // In a real application, you would check the actual authentication state
+        // Check authentication state
+        isAuthenticated.value = localStorage.getItem('isAuthenticated') === 'true';
         if (!isAuthenticated.value) {
           setTimeout(() => {
             router.push('/profile/signin')
