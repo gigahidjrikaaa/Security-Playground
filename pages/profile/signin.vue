@@ -40,6 +40,9 @@ export default {
     };
   },
   methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
     handleSubmit() {
       // Simulate sign-in logic
       if (this.username === 'admin' && this.password === 'admin') {
