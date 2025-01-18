@@ -14,6 +14,14 @@
           <input v-model="password" type="password" id="password" class="mt-1 block w-full border p-2 rounded" placeholder="Enter your password" />
         </div>
         <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">Sign In</button>
+        <p class="mt-4 text-center">Don't have an account?
+          <button @click="showModal" class="text-blue-500">Sign up</button>
+        </p>
+        <modal v-if="isModalVisible" @close="isModalVisible = false">
+          <h3 slot="header">Account Creation</h3>
+          <p slot="body">Contact administrator for account creation</p>
+          <button slot="footer" @click="isModalVisible = false">Close</button>
+        </modal>
       </form>
       <p v-if="errorMessage" class="mt-4 text-red-500 text-center">{{ errorMessage }}</p>
     </div>
